@@ -1,0 +1,63 @@
+Syntax and Description:                            Example (Usage):
+
+hadoop version						hadoop version
+displays the version of hadoop
+installed in the system
+
+hadoop fs -ls /					hadoop fs -ls /
+Displays List of Files and Directories
+in HDFS file Path
+
+hadoop fs –mkdir					hadoop fs -mkdir /user/hadoop/
+create a directory on an HDFS
+environment.
+
+hadoop fs –put						hadoop fs -put sample.txt /user/data/
+used to copy files from the local file
+system to the HDFS filesystem
+
+hadoop fs –get				       hadoop fs -get /user/data/sample.txtworkspace/
+used to copy files from HDFS file
+system to the local file system, just
+the opposite to put command.
+
+hadoop fs -cat URI [URI ...]			hadoop fs -cat /user/data/sampletext.txt
+used for displaying the contents of a
+file on the console.
+
+hadoop fs -cp URI [URI ...] <dest>	      hadoop fs -cp /user/hadoop/file1/user/hadoop/file2
+Copy files from source to destination.
+This command allows multiple
+sources as well in which case the
+destination must be a directory.
+
+hadoop fs -appendToFile <localsrc>... <dst>   hadoop fs -appendToFile localfile/user/hadoop/hadoopfile
+Append single src, or multiple srcs
+from local file system to the
+destination file system. Also reads
+input from stdin and appends to
+destination file system.
+
+hadoop fs -df URI [URI ...]			hadoop dfs -df /user/hadoop/dir1
+Displays free space
+
+hadoop fs –help 				hadoop fs –help
+
+hadoop fs -touchz URI [URI ...]		hadoop -touchz pathname
+Create a file of zero length. An error
+is returned if the file exists with nonzero length
+
+hadoop fs -rmdir URI [URI ...]		hadoop fs -rmdir /user/hadoop/emptydir
+Delete a directory
+
+hadoop fs -mv URI [URI ...] <dest>		hadoop fs -mv /user/hadoop/file1
+/user/hadoop/file2
+Moves files from source to
+destination. This command allows
+multiple sources as well in which
+case the destination needs to be a
+directory.
+
+
+
+

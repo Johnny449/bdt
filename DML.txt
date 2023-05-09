@@ -1,0 +1,25 @@
+SET hive.support.concurrency=true;
+SET hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager;
+SET hive.enforce.bucketing=true;
+SET hive.exec.dynamic.partition.mode=npstrict;
+SET hive.compactor.initiator.on=true;
+SET hive.compactor.worker.threads=1;
+
+
+create table employeeee(id int, name string) partitioned by (adm_date date) clustered by (id) into  2 buckets stored as orc TBLPROPERTIES('transactional'='true');
+
+
+insert into employeeee partition (adm_date ='2020-04-01') values (12, 'ravi');
+
+insert into employeeee partition (adm_date ='2020-04-02') values (13, 'raju');
+
+select * from employeeee;
+
+update employeeee set name= 'Bose'  where id=13;
+
+select * from employeeee;
+
+delete from employeeee where id=13;
+
+select * from employeeee;
+
